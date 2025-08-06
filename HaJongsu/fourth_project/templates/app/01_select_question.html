@@ -1,0 +1,67 @@
+<!-- c:/Workspaces/Personal_Anything/3rd_to_4th/fourth_project/templates/app/01_select_question.html -->
+
+{% extends "layout/base.html" %}
+{% load static %}
+{% block title %}논술 문항 선택{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">📘 논술 문항 선택</h2>
+    
+    <!-- 드롭다운 메뉴 -->
+    <div class="row g-3">
+        <div class="col-md-4">
+            <label for="schoolSelect" class="form-label">학교 선택</label>
+            <select id="schoolSelect" class="form-select">
+                <option selected disabled>학교를 선택하세요</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="yearSelect" class="form-label">연도 선택</label>
+            <select id="yearSelect" class="form-select" disabled>
+                <option selected disabled>연도를 선택하세요</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="questionSelect" class="form-label">문항 선택</label>
+            <select id="questionSelect" class="form-select" disabled>
+                <option selected disabled>문항을 선택하세요</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- ★★★ JS가 그림을 그릴 캔버스. id="image-container"가 중요! ★★★ -->
+    <div id="image-container" class="mt-4" style="display: none;">
+        <div id="imageCarousel" class="carousel slide carousel-dark" data-bs-ride="false">
+            <!-- ★★★ JS가 Carousel 아이템을 채워넣을 곳. 이 구조가 정확해야 해! ★★★ -->
+            <div class="carousel-inner bg-light p-3 rounded shadow-sm">
+                <!-- 이 안은 비워둬. 자바스크립트가 채울 거야. -->
+            </div>
+            <!-- "이전/다음" 버튼 -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 타이머 위젯 -->
+    <div id="floating-timer-widget">
+        <span id="timerDisplay">00:00:00</span>
+        <div class="timer-controls">
+            <button id="startBtn" title="시작"><i class="bi bi-play-fill"></i></button>
+            <button id="pauseBtn" title="일시정지"><i class="bi bi-pause-fill"></i></button>
+            <button id="resetBtn" title="초기화"><i class="bi bi-arrow-clockwise"></i></button>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block script %}
+{{ schools_data_json|json_script:"schools-data" }}
+<script src="{% static 'js/question-selector.js' %}"></script>
+{% endblock script %}
