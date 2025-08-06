@@ -1,0 +1,174 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block title %}AI 논술 첨삭 - 답안 채점{% endblock %}
+
+{% block extra_head %}
+    <!-- Bootstrap 아이콘을 사용하기 위한 CSS 파일입니다. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- 우리가 직접 작성할 커스텀 CSS 파일을 연결합니다. Bootstrap 스타일을 덮어쓰거나 추가 스타일을 정의할 때 사용됩니다. -->
+    <link rel="stylesheet" href="{% static 'css/grading.css' %}">
+{% endblock %}
+
+{% block content %}
+    <!-- 전체 페이지를 감싸는 메인 컨테이너입니다. -->
+    <div class="container-fluid">
+        <!-- Bootstrap의 그리드 시스템을 사용하여 레이아웃을 나눕니다. -->
+        <div class="row">
+
+            <!-- 사이드바: 파일 업로드 및 관리 영역 -->
+            <!-- col-lg-3 클래스는 큰 화면(large)에서 전체 12칸 중 3칸을 차지하도록 설정합니다. -->
+            <aside class="col-lg-3 p-4 bg-light">
+                <!-- 사이드바의 헤더 부분입니다. -->
+                <div class="sidebar-header d-flex justify-content-between align-items-center mb-4">
+                    <!-- 페이지의 메인 타이틀입니다. -->
+                    <h1 class="h4 mb-0">✏️ AI 첨삭 챗봇</h1>
+                    <!-- 홈으로 돌아가는 링크입니다. 아이콘을 사용해 시각적인 효과를 줍니다. -->
+                    <a href="{% url 'app:index' %}" class="btn btn-outline-secondary btn-sm">
+                        <i class="bi bi-house-door-fill"></i> 홈으로
+                    </a>
+                </div>
+
+                <!-- 파일 업로드를 위한 카드 컴포넌트입니다. -->
+                <div class="card">
+                    <div class="card-body">
+                        <!-- 카드 제목입니다. -->
+                        <h5 class="card-title mb-3">📁 파일 업로드</h5>
+                        <!-- 파일을 선택할 수 있는 input 요소입니다. 'multiple' 속성으로 여러 파일 선택이 가능하게 합니다. -->
+                        <input class="form-control" type="file" id="fileUploader" accept=".jpg, .jpeg, .png" multiple>
+                        <!-- 업로드된 파일 목록이 동적으로 표시될 영역입니다. -->
+                        <div id="uploadedFileList" class="mt-3">
+                            <p class="text-muted small">이미지 파일을 업로드해주세요.</p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- 메인 콘텐츠 영역 -->
+            <!-- col-lg-9 클래스는 큰 화면에서 나머지 9칸을 차지하도록 합니다. -->
+            <main class="col-lg-9 p-4">
+                <!-- 메인 콘텐츠의 제목입니다. -->
+                <h2 class="mb-4">🤖 GPT 기반 손글씨 첨삭</h2>
+
+                <!-- 1. 답안지 미리보기 섹션 -->
+                <section id="previewSection" class="mb-4">
+                    <h3 class="h5 mb-3">📸 선택한 답안지 미리보기 (가로 슬라이드)</h3>
+                    <!-- Bootstrap Carousel 컴포넌트로 이미지 슬라이드를 구현합니다. -->
+                    <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <!-- 슬라이드될 이미지들이 들어갈 내부 컨테이너입니다. -->
+                        <div class="carousel-inner text-center bg-secondary-subtle rounded p-3">
+                            <!-- 초기 메시지: 이미지를 선택하라는 안내 문구입니다. JS로 실제 이미지로 교체됩니다. -->
+                            <div class="carousel-item active">
+                                <p class="d-block w-100 m-5">사이드바에서 파일을 업로드하고 목록에서 확인할 파일을 선택하세요.</p>
+                            </div>
+                        </div>
+                        <!-- Carousel 이전/다음 버튼입니다. -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <!-- GPT 첨삭 실행 버튼. 클릭 시 백엔드에 분석을 요청하는 역할을 합니다. -->
+                    <div class="d-grid gap-2 mt-3">
+                        <button id="startGradingBtn" class="btn btn-primary btn-lg" type="button" disabled>
+                            <i class="bi bi-robot"></i> GPT 첨삭 실행
+                        </button>
+                    </div>
+                </section>
+
+                <!-- 2. 첨삭 결과 표시 섹션 (초기에는 숨겨져 있음) -->
+                <section id="resultSection" class="d-none">
+                    <hr class="my-4">
+                    <h3 class="h5 mb-3">📄 첨삭 결과</h3>
+                    <!-- 로딩 스피너: AI가 분석하는 동안 사용자에게 진행 중임을 알려줍니다. -->
+                    <div id="loadingSpinner" class="text-center my-5 d-none">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-2">AI 멘토가 답안을 분석하고 있습니다. 잠시만 기다려주세요...</p>
+                    </div>
+
+                    <!-- OCR 추출 텍스트 및 AI 첨삭 결과가 표시될 컨테이너입니다. -->
+                    <div id="gradingResultContainer">
+                        <!-- OCR 결과 표시 영역 -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <strong>OCR 추출 텍스트:</strong>
+                            </div>
+                            <div class="card-body">
+                                <!-- OCR로 변환된 텍스트가 여기에 들어갑니다. -->
+                                <pre><code id="ocrTextOutput"></code></pre>
+                            </div>
+                        </div>
+
+                        <!-- 학생 답안과 모범 답안 비교 영역 -->
+                        <h4 class="h6 mb-3">AI 멘토 첨삭 결과</h4>
+                        <div class="row">
+                            <!-- 학생 답안 컬럼 -->
+                            <div class="col-md-6">
+                                <div class="card h-100">
+                                    <div class="card-header bg-info-subtle">👨‍🎓 학생 답안 (OCR 변환)</div>
+                                    <div class="card-body">
+                                        <textarea id="studentAnswer" class="form-control" rows="15" readonly></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 모범 답안 컬럼 -->
+                            <div class="col-md-6">
+                                <div class="card h-100">
+                                    <div class="card-header bg-warning-subtle">✅ 모범 답안</div>
+                                    <div class="card-body">
+                                        <textarea id="modelAnswer" class="form-control" rows="15" readonly></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AI 코멘트 영역 -->
+                        <div id="aiComments" class="mt-4">
+                            <!-- 총평, 잘한 점, 아쉬운 점 등 AI의 분석 결과가 동적으로 채워질 부분입니다. -->
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- 3. Q&A 챗봇 섹션 -->
+                <section id="chatbotSection" class="mt-4">
+                    <hr class="my-4">
+                    <h3 class="h5 mb-3">💬 내 답변 기반 Q&A 챗봇</h3>
+                    
+                    <!-- 자주 묻는 질문(FAQ) 버튼 -->
+                    <div class="faq-buttons mb-3">
+                        <p class="fw-bold small">📌 자주 묻는 질문</p>
+                        <button class="btn btn-outline-secondary btn-sm mb-1">내 주장의 논리 전개가 괜찮은가요?</button>
+                        <button class="btn btn-outline-secondary btn-sm mb-1">더 설득력 있게 쓰려면 어떤 표현을 쓰면 좋을까요?</button>
+                        <button class="btn btn-outline-secondary btn-sm mb-1">결론 부분을 어떻게 보완할 수 있을까요?</button>
+                        <button class="btn btn-outline-secondary btn-sm mb-1">예시가 부족한가요?</button>
+                    </div>
+
+                    <!-- 대화 내용이 표시될 영역 -->
+                    <div id="chatHistory" class="chat-history border rounded p-3 mb-3" style="height: 300px; overflow-y: auto;">
+                        <!-- 채팅 메시지가 여기에 동적으로 추가됩니다. -->
+                        <div class="text-muted text-center">궁금한 점을 질문하거나 자주 묻는 질문을 클릭해보세요.</div>
+                    </div>
+
+                    <!-- 사용자 질문 입력 폼 -->
+                    <form id="chatForm" class="d-flex">
+                        <input type="text" id="chatInput" class="form-control me-2" placeholder="질문을 입력하세요..." autocomplete="off">
+                        <button class="btn btn-success" type="submit">전송</button>
+                    </form>
+                </section>
+            </main>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+    <!-- 우리가 직접 작성할 JavaScript 파일을 연결합니다. 페이지의 모든 동적 기능과 상호작용을 처리합니다. -->
+    <script src="{% static 'js/grading.js' %}"></script>
+    <script src="{% static 'js/fileUploader.js' %}"></script>
+{% endblock %}
