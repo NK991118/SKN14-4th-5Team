@@ -87,7 +87,7 @@ LLM 기반의 RAG(Retrieval-Augmented Generation) 구조를 활용한 **대학 �
 ```bash
 git clone https://github.com/skn-ai14-250409/SKN14-4th-5Team.git
 ```
-2. 가상 환경 설정 및 활성화
+#### 2. 가상 환경 설정 및 활성화
 
 ```bash
 # Windows
@@ -99,7 +99,7 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-3. 필요 라이브러리 설치
+#### 3. 필요 라이브러리 설치
 ```bash
 pip install -r requirements.txt
 ```
@@ -110,6 +110,7 @@ pip install -r requirements.txt
 ```bash
 OPENAI_API_KEY="sk-..."
 ```
+
 #### 5. 데이터베이스 설정
 
 
