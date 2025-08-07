@@ -43,7 +43,6 @@ def my_answer(request):
         request.session['extracted_text'] = extracted_text
         
         return redirect(reverse('app:run_grading'))
-
     else:
         context = {'schools_data_json': UNIVERSITY_DATA}
         return render(request, 'app/02_my_answer.html', context)
@@ -85,10 +84,22 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('app:index')
+
+            next_url = request.POST.get('next')
+
+            if next_url:
+                return redirect(next_url)
+            else:
+                return redirect('app:index')
     else:
         form = CustomAuthenticationForm()
-    return render(request, 'app/login.html', {'form': form})
+    
+    next_url = request.GET.get('next', '')
+
+    return render(request, 'app/login.html', {
+        'form': form,
+        'next': next_url
+    })
 
 def logout_view(request):
     logout(request)

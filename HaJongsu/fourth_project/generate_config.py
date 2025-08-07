@@ -1,9 +1,6 @@
-# c:/Workspaces/Personal_Anything/3rd_to_4th/fourth_project/generate_config.py
-
 import os
 import pprint
 
-# --- 설정 값 (변경 없음) ---
 JSON_DIR = os.path.join('data', 'json')
 IMAGE_DIR = os.path.join('static', 'images', 'pdf_pages')
 OUTPUT_FILE = os.path.join('app', 'config.py')

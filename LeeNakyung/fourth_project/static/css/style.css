@@ -48,6 +48,7 @@ body {
 }
 
 .menu-item {
+    flex-direction: row;
     display: flex;
     align-items: center;
     padding: 12px 16px;
@@ -76,7 +77,10 @@ body {
 }
 
 .menu-icon {
-    font-size: 30px;
+    margin-right: 15px; /* 아이콘과 글자 사이 여백 */
+    display: flex;
+    align-items: center;
+    font-size: 40px;
     text-align: center;
 }
 
@@ -151,9 +155,36 @@ h1 {
 }
 
 .carousel-slide-overlay {
-  position: relative;
+    position: relative;
 }
 
+.carousel-item {
+    height: 400px; /* 전체 슬라이드 높이 고정 */
+    overflow: hidden; /* 넘치는 이미지 잘라냄 */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 비율 유지 */
+}
+
+
+/* 캐러셀 내부 링크는 hover 효과 제거 */
+.carousel .login-required:hover {
+    background-color: transparent !important;
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.carousel-inner {
+    transition: transform 0.6s ease;
+}
+
+
+.footer {
+    background-color: white;
+}
 
 
 
