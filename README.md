@@ -92,7 +92,8 @@ LLM 기반의 RAG(Retrieval-Augmented Generation) 구조를 활용한 **대학 �
 
 ### 데이터 플로우
 
-<img width="1828" height="830" alt="skn14_4th_5team_data_flow" src="https://github.com/user-attachments/assets/a5a2751d-7fab-4e51-bde1-74d4f74fa290" />
+
+<img width="1828" height="830" alt="skn14_4th_5team_data_flow" src="https://github.com/user-attachments/assets/4f113cb3-4c7f-4ff4-a856-94bf15735bab" />
 
 
 
