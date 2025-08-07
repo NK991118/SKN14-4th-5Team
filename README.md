@@ -13,11 +13,18 @@
 
 # 🧭기존 프로젝트 소개 (streamlit 버전)
 
+기존 프로젝트 주소: https://github.com/skn-ai14-250409/SKN14-3rd-5Team
+
 ## 👨‍💻 팀원 소개 및 역할
 #### 팀명: 오논아놈? (오 논술할 줄 아는 놈인가?)
 | **하종수** |             **김성민**              | **송유나** | **이나경** | **이승혁** |
 |:--:|:--------------------------------:|:--:|:--:|:--:|
-| ![](image/짱구.png) |![](image/맹구.png) | ![](image/액션가면.png) | ![](image/부리부리대마왕.jpeg) | ![](image/흰둥이.png) |
+| <img width="292" height="337" alt="짱구" src="https://github.com/user-attachments/assets/5c74f190-017f-437f-b2b1-185dbca49c18" />
+ | <img width="340" height="420" alt="맹구" src="https://github.com/user-attachments/assets/31ed9174-818d-4aa5-aebc-e0840cc0cba6" />
+ | <img width="340" height="420" alt="액션가면" src="https://github.com/user-attachments/assets/71869846-7508-4097-b737-14dfd2e91799" />
+ | ![부리부리대마왕](https://github.com/user-attachments/assets/6e629093-ccbe-40a6-b5d2-e5e6edebc477)
+ | <img width="438" height="398" alt="흰둥이" src="https://github.com/user-attachments/assets/a1be1b54-dbf1-4107-846c-4d19d4fb7dc5" />
+ |
 | 프로젝트 총괄, 데이터 수집·전처리 | 프론트엔드 개발 (Streamlit), 데이터 수집·전처리 | 데이터 전처리, 백엔드 개발 (RAG) | 데이터 전처리, 백엔드 개발 (RAG) | 백엔드 개발 (RAG), 프롬프팅 |
 
 
