@@ -53,7 +53,8 @@ LLM 기반의 RAG(Retrieval-Augmented Generation) 구조를 활용한 **대학 �
     *   사용자가 직접 쓴 답안지 이미지 파일 업로드 기능.
     *   PaddleOCR을 이용해 업로드된 이미지에서 텍스트를 정확하게 추출.
 *   **🤖 AI 첨삭:**
-    *   LangCha상
+    *   LangChain과 RAG(검색 증강 생성) 기술을 활용.
+    *   FAISS 벡터 DB에 저장된 대학별 채점 기준과 모범 답안을 바탕으로 맥락에 맞는 첨삭 제공.
 
 *   **💖 UI/UX 개선:**
     * streamlit의 한계를 극복하여 django와 bootstrap을 이용한 UI/UX 개선
