@@ -159,7 +159,6 @@ h1 {
 }
 
 .carousel-item {
-    height: 400px; /* 전체 슬라이드 높이 고정 */
     overflow: hidden; /* 넘치는 이미지 잘라냄 */
 }
 
@@ -169,18 +168,12 @@ h1 {
     object-fit: cover; /* 비율 유지 */
 }
 
-
 /* 캐러셀 내부 링크는 hover 효과 제거 */
 .carousel .login-required:hover {
     background-color: transparent !important;
     color: inherit !important;
     text-decoration: none !important;
 }
-
-.carousel-inner {
-    transition: transform 0.6s ease;
-}
-
 
 .footer {
     background-color: white;
