@@ -47,9 +47,7 @@ def my_answer(request):
         request.session['question_id'] = question_id
         request.session['extracted_text'] = extracted_text
         return redirect(reverse('app:run_grading'))
-        
     else:
-        # 이 페이지에도 대학-연도-문항 선택 드롭다운이 필요하므로 데이터를 템플릿에 전달해야 해.
         context = {'schools_data_json': UNIVERSITY_DATA}
         return render(request, 'app/02_my_answer.html', context)
 
