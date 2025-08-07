@@ -38,6 +38,12 @@ LLM 기반의 RAG(Retrieval-Augmented Generation) 구조를 활용한 **대학 �
 
 # 💡 이하 Django version
 
+## 🧞 요구 사항 정의서
+
+
+요구사항이 들어갈 자리
+
+
 
 ## ✨ 주요 기능 및 추가 사항
 
@@ -113,7 +119,7 @@ LLM 기반의 RAG(Retrieval-Augmented Generation) 구조를 활용한 **대학 �
 | <img width="1906" height="850" alt="compare" src="https://github.com/user-attachments/assets/ad6eeb3b-d29c-4e54-b5ac-550fb00e5b18" /> |OCR 추출 > 내 답안과 모범답안 비교 |
 | <img width="1258" height="430" alt="history" src="https://github.com/user-attachments/assets/e33f0c53-b1e3-4009-acfb-5807b6c3e060" /> | 첨삭 히스토리 제공 |
 | <img width="1878" height="859" alt="result" src="https://github.com/user-attachments/assets/16d33ef6-f779-4be7-8967-852517a53d28" /> |첨삭 및 코멘트 확인|
-| ![image6](image/image6.png) | 첨삭 관련 질문 및 FAQ 답변 확인 |
+| <img width="600" height="764" alt="chatbot" src="https://github.com/user-attachments/assets/6004f70d-83ff-407f-86ad-a0aa379e59ef" /> | 첨삭 관련 질문 및 FAQ 답변 확인 |
 
 ---
 
@@ -185,3 +191,17 @@ python manage.py runserver
 📊 성장 대시보드: AI가 매긴 예상 점수를 그래프로 시각화하여 학습 성과를 추적하는 기능.
 
 🔗 유사 문제 추천: 약점을 보완할 수 있는 유사한 유형의 다른 대학 문제를 추천하는 AI 기능.
+
+
+---
+
+## 📝 회고록
+*   **하종수:** 
+
+*   **김성민:** 
+
+*   **송유나:** 
+
+*   **이나경:** 
+
+*   **이승혁:** 
