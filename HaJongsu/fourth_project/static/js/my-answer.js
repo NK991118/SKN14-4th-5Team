@@ -88,4 +88,24 @@ document.addEventListener('DOMContentLoaded', function () {
             reader.readAsDataURL(file);
         }
     });
+
+        const gradingForm = document.getElementById('grading-form');
+    const spinner = document.getElementById('spinner');
+    console.log(spinner);
+
+    
+    gradingForm.addEventListener('submit',
+        function (e) {
+            e.preventDefault();
+
+            const fileInput = document.getElementById('imageUploader');
+            if (!fileInput.files.length) {
+                alert('작성한 답안 이미지 파일을 업로드해주세요.')
+                return;
+            }
+
+            spinner.style.display = 'block';
+
+            gradingForm.submit();
+    });
 });

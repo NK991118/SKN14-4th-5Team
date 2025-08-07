@@ -6,8 +6,15 @@
 {% block content %}
 <div class="container">
     <h2 class="mb-4">✍️ 나의 답안 입력 및 제출</h2>
-    {% comment %} <form method="post" enctype="multipart/form-data" action="{% url 'app:run_grading' %}"> {% endcomment %}
-    <form method="post" enctype="multipart/form-data" action="{% url 'app:02_my_answer' %}">
+
+    <div id="spinner" style="display: none;">
+        <div class="spinner-wrapper">
+            <img src="{% static 'images/spinner.gif' %}" alt="로딩 중..." class="spinner-img">
+            <p class="loading-text">loading...</p>
+        </div>
+    </div>
+
+    <form id='grading-form' method="post" enctype="multipart/form-data" action="{% url 'app:02_my_answer' %}">
         {% csrf_token %}
 
         <div class="card mb-4">
