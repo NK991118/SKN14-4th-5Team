@@ -11,14 +11,11 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-from dotenv import load_dotenv # dotenv 라이브러리에서 load_dotenv 함수를 가져와.
-import os # 운영체제 환경 변수를 다루기 위해 os 모듈을 가져와.
+from dotenv import load_dotenv
+import os
 
-# .env 파일에서 환경 변수를 로드해. 이 함수는 프로젝트의 루트 디렉토리에서 .env 파일을 찾아.
 load_dotenv(Path(__file__).resolve().parent.parent.parent / '.env')
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-# 이 프로젝트의 가장 기본이 되는 폴더 경로를 설정해. manage.py 파일이 있는 곳이야.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -38,8 +35,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # 'app' 대신 'app.apps.AppConfig' 라고 정확한 경로를 알려줘야 해.
-    # 이렇게 하면 Django가 절대 길을 잃지 않고 우리 앱을 찾을 수 있어.
     'app.apps.AppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -64,8 +59,8 @@ ROOT_URLCONF = 'fourth_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # 템플릿 디렉토리 설정
-        'APP_DIRS': True,  # 앱 디렉토리에서 템플릿을 자동으로 로드
+        'DIRS': [BASE_DIR / 'templates'],
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.request',
@@ -84,8 +79,12 @@ WSGI_APPLICATION = 'fourth_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',  # MySQL을 사용하는 경우
+        'NAME': 'submitdb',  # 데이터베이스 이름
+        'USER': 'django',  # 데이터베이스 사용자
+        'PASSWORD': 'django',  # 사용자 비밀번호
+        'HOST': 'localhost',  # 데이터베이스 호스트
+        'PORT': '3306',  # MySQL 기본 포트
     }
 }
 
@@ -112,9 +111,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'ko-kr' # 웹사이트의 기본 언어를 한국어로 설정해.
+LANGUAGE_CODE = 'ko-kr'
 
-TIME_ZONE = 'Asia/Seoul' # 웹사이트의 기준 시간대를 서울 시간으로 설정해.
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
@@ -127,8 +126,6 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    # 프로젝트 최상위 폴더(manage.py가 있는 곳) 바로 아래에 있는 'static' 폴더 하나만
-    # static 파일 경로로 지정하면 돼. 아주 깔끔해졌지?
     os.path.join(BASE_DIR, 'static'),
 ]
 

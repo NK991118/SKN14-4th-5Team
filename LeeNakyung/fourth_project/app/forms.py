@@ -1,5 +1,3 @@
-# c:/Workspaces/Personal_Anything/3rd_to_4th/fourth_project/app/forms.py (새 파일)
-
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 

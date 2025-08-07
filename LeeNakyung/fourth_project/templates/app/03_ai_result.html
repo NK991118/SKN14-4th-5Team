@@ -1,5 +1,3 @@
-<!-- c:/Workspaces/Personal_Anything/3rd_to_4th/fourth_project/templates/app/03_ai_result.html -->
-
 {% extends "layout/base.html" %}
 {% load static %}
 {% block title %}AI 첨삭 결과{% endblock title %}
@@ -8,11 +6,9 @@
 <div class="container-fluid mt-4">
     <div class="row">
 
-        <!-- 왼쪽 컬럼 (8칸): 첨삭 결과 -->
         <div class="col-lg-8">
             <h2 class="mb-4">🤖 AI 멘토 첨삭 결과</h2>
-    
-            <!-- 학생 답안 / 모범 답안 -->
+
             <div class="row">
                 <div class="col-md-6 mb-4">
                     <div class="card h-100">
@@ -27,8 +23,7 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- AI 코멘트 카드 -->
+
             <div class="card mt-4">
                 <div class="card-header"><strong>✨ 논리왕 김멘토's 코멘트</strong></div>
                 <div class="card-body">
@@ -62,9 +57,7 @@
             </div>
         </div>
 
-        <!-- 오른쪽 컬럼 (4칸): 채팅창 -->
         <div class="col-lg-4">
-            <!-- ★★★ 채팅창을 감싸는 div에 id를 부여해서 CSS로 제어할 거야! ★★★ -->
             <div id="fixed-chat-container">
                 <div class="card">
                     <div class="card-header"><strong><i class="bi bi-chat-dots-fill"></i>AI 챗봇</strong></div>
@@ -89,7 +82,6 @@
 </div>
 {% endblock content %}
 
-<!-- ★★★ 바로 여기가 새로 추가/수정될 부분! ★★★ -->
 {% block script %}
 <script src="{% static 'js/chat.js' %}"></script>
 {% endblock script %}
