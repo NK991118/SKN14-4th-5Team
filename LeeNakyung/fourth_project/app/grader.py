@@ -1,11 +1,7 @@
-# c:/Workspaces/Personal_Anything/3rd_to_4th/fourth_project/app/grader.py
-
 import os
-from django.conf import settings # Django의 설정을 가져오기 위해 import
+from django.conf import settings
 from dotenv import load_dotenv
-# from langchain_community.embeddings import HuggingFaceEmbeddings # 원래 모델, 안 됨
-# from langchain_community.embeddings import SentenceTransformerEmbeddings # 새로 가져온 임베딩 모델, 역시 안 됨
-from langchain_openai import OpenAIEmbeddings # ★★★ 바로 이걸로 확정! ★★★
+from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -14,7 +10,6 @@ from langchain_core.runnables import RunnableLambda
 
 load_dotenv()
 
-# 파일 경로를 우리 프로젝트에 맞게 settings.BASE_DIR를 사용해서 설정!
 FAISS_INDEX_DIR = os.path.join(settings.BASE_DIR, 'data', 'faiss')
 
 def safe_retriever_invoke(retriever, query, source_type):
@@ -26,49 +21,24 @@ def safe_retriever_invoke(retriever, query, source_type):
 
 class EssayGrader:
     def __init__(self):
-        print("    [Grader CCTV-A] EssayGrader 초기화를 시작합니다...")
         self._setup_api_key()
-        print("    [Grader CCTV-B] 임베딩 모델(_initialize_embedding_model)을 초기화합니다...")
-        # 이 모델은 우리가 원래 쓰려던 'ko-sbert-nli'와 성능이 비슷하면서도 많이 쓰이는 한국어 모델
-        self.embedding_model = OpenAIEmbeddings(model="text-embedding-3-small") # 비용 효율적인 최신 모델 사용
-        print("    [Grader CCTV-C] 임베딩 모델 초기화 성공!")
-        # ★★★ 가장 의심스러운 용의자 2 ★★★
-        print("    [Grader CCTV-D] LLM(ChatOpenAI)을 초기화합니다...")
+        self.embedding_model = OpenAIEmbeddings(model="text-embedding-3-small")
         self.llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.7)
-        print("    [Grader CCTV-E] LLM 초기화 성공!")
-        
-        print(f"    [Grader CCTV-F] FAISS 인덱스를 로딩합니다...")
+
         self.vector_db = FAISS.load_local(
             FAISS_INDEX_DIR, 
             self.embedding_model, 
             allow_dangerous_deserialization=True
         )
         self.retriever = self.vector_db.as_retriever()
-        print("    [Grader CCTV-G] 벡터 검색기 설정 완료!")
-
         self.correction_chain = self._build_rag_chain()
-        print("    [Grader CCTV-H] AI 논술 첨삭 RAG 체인 완성!")
-        print("\n--- [Grader] 모든 준비 완료! ---")
     
     def _setup_api_key(self):
-        # .env 파일에서 API 키를 로드
         if not os.getenv("OPENAI_API_KEY"):
             raise ValueError("환경변수에서 OPENAI_API_KEY를 찾을 수 없습니다. .env 파일을 확인하세요.")
-        print("✅ API 키 로딩 완료.")
-
-    # def _initialize_embedding_model(self): # openai 임베딩 모델을 사용하기 때문에 이 함수는 필요 없어.
-    #     # 이 함수 안에서도 무슨 일이 일어나는지 감시하자.
-    #     print("      [Embedding CCTV-1] SentenceTransformerEmbeddings를 로드합니다...")
-    #     model =  SentenceTransformerEmbeddings(
-    #         model_name="jhgan/ko-sbert-nli",
-    #         model_kwargs={'device': 'cpu'},
-    #         encode_kwargs={'normalize_embeddings': True},
-    #     )
-    #     print("      [Embedding CCTV-2] SentenceTransformerEmbeddings 로드 성공.")
-    #     return model
 
     def _build_rag_chain(self):
-        # essay_grader.py에 있던 프롬프트 내용을 그대로 사용
+        
         prompt_template = """
         [역할]
         당신은 대치동에서 10년간 논술을 가르친, 냉철하지만 애정 어린 조언을 아끼지 않는 스타강사 '논리왕 김멘토'입니다. 학생의 눈높이에 맞춰 핵심을 꿰뚫는 '팩트 폭격'과 따뜻한 격려를 겸비한 첨삭 스타일로 유명합니다.
@@ -134,14 +104,10 @@ class EssayGrader:
             "user_ocr_answer": student_answer
         })
 
-    # grade_essay 메소드 아래에 새로 추가하는 거야!
     def mento_chat(self, student_answer: str, ai_comment: str, user_question: str) -> str:
-        """
-        기존 첨삭 결과와 학생의 질문을 바탕으로 AI 챗봇 응답을 생성합니다.
-        """
+
         print(f"질문 '{user_question[:20]}...'에 대한 AI 챗봇 응답을 생성합니다...")
 
-        # 챗봇을 위한 별도의 프롬프트 템플릿이야.
         prompt_template = """
     당신은 10년 이상 수능 및 대학 논술을 전문적으로 가르쳐온 첨삭 전문가입니다.
     학생의 질문에 대해 학생이 작성한 논술 문장을 바탕으로 명확하고 구체적인 피드백을 제공합니다.
@@ -175,32 +141,23 @@ class EssayGrader:
 
     [답변]
     """
-        # 프롬프트 템플릿에 실제 내용을 채워넣어.
+
         prompt = ChatPromptTemplate.from_template(prompt_template)
-        
-        # LLM 체인을 구성해. 이번에는 RAG 없이, 주어진 정보만으로 답변을 생성해.
+
         chain = prompt | self.llm | StrOutputParser()
-        
-        # 체인을 실행해서 AI의 답변을 받아와.
+
         return chain.invoke({
             "user_answer": student_answer,
             "followup_question": user_question
         })  
 
-# 전역 변수를 만들어서, 생성된 EssayGrader 인스턴스를 저장해 둠
-
-_grader_instance = None
+essay_grader = None
 
 def get_essay_grader():
-    """
-    EssayGrader 인스턴스를 가져오는 함수. (싱글턴 패턴)
-    인스턴스가 없으면 새로 만들고, 있으면 기존 것을 반환.
-    """
-    global _grader_instance
-    if _grader_instance is None:
-        print("최초 요청! EssayGrader 인스턴스를 생성합니다...")
-        _grader_instance = EssayGrader()
-        print("✅ EssayGrader 인스턴스 생성 완료!")
-    return _grader_instance
+    global essay_grader
+    if essay_grader is None:
+        print("Essay Grader를 로딩합니다...")
+        essay_grader = EssayGrader()
+        print("✅ Essay Grader 로딩 완료!")
+    return essay_grader
 
-    

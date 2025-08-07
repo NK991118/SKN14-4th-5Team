@@ -9,13 +9,13 @@
             <div class="card my-5">
                 <div class="card-body">
                     <h2 class="card-title text-center mb-4">로그인</h2>
+                    {# <form method="post"> #}
                     <form method="POST" action="{% url 'app:login' %}">
                         {% csrf_token %}
                         {% if next %}
                             <input type="hidden" name="next" value="{{ next }}">
                         {% endif %}
                         
-                        <!-- form.as_p 대신 Bootstrap에 맞게 수동으로 그려주는 버전이야. -->
                         {% if form.non_field_errors %}
                             <div class="alert alert-danger">
                                 {% for error in form.non_field_errors %}

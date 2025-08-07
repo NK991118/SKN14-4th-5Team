@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
 
             {% if user.is_authenticated %}
-                <!-- ======== 로그인한 사용자가 볼 메뉴 ======== -->
+                <!-- 로그인한 사용자가 볼 메뉴 -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'app:index' %}">
@@ -35,7 +35,7 @@
                 </ul>
 
             {% else %}
-                <!-- ======== 로그인하지 않은 사용자가 볼 메뉴 ======== -->
+                <!--  로그인하지 않은 사용자가 볼 메뉴 -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'app:index' %}"><i class="bi bi-house-door-fill"></i> 홈</a>
