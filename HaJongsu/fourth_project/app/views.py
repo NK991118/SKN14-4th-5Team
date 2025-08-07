@@ -27,6 +27,7 @@ def select_question(request):
     
     return render(request, 'app/01_select_question.html', context)
 
+@login_required(login_url='app:login')
 def my_answer(request):
     
     if request.method == 'POST':
@@ -84,18 +85,16 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-
+            
             next_url = request.POST.get('next')
-
             if next_url:
                 return redirect(next_url)
             else:
                 return redirect('app:index')
     else:
         form = CustomAuthenticationForm()
-    
-    next_url = request.GET.get('next', '')
 
+    next_url = request.GET.get('next', '')
     return render(request, 'app/login.html', {
         'form': form,
         'next': next_url

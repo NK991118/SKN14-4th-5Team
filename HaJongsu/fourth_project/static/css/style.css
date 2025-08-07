@@ -367,7 +367,7 @@ html body {
 }
 
 .sidebar:hover .menu-text {
-  opacity: 1;
+    opacity: 1;
 }
 
 /* .main-content {
@@ -495,14 +495,14 @@ h1 {
 }
 
 .timer-controls button:hover {
-    transform: translateY(-2px); 
+    transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
 #minuteInput {
-  position: absolute;
-  margin-top: 35px;
-  width: 80px;
+    position: absolute;
+    margin-top: 35px;
+    width: 80px;
 }
 
 /* #startBtn { background-color: #28a745; }
@@ -512,7 +512,7 @@ h1 {
 #resetBtn { background-color: #dc3545; }  */
 
 #imageCarousel {
-    --carousel-max-height: 300vh; 
+    --carousel-max-height: 300vh;
 }
 
 /* .carousel-inner {
@@ -525,7 +525,7 @@ h1 {
 }
 
 .carousel-item {
-    /* height와 overflow 제거: 이미지가 잘리지 않게 */
+    overflow: hidden; /* 넘치는 이미지 잘라냄 */
 }
 
 .carousel-item.active {

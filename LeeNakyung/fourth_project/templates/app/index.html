@@ -10,11 +10,14 @@
 {% block content %}
 <!-- 본문 -->
 <div class="container">
+    <div class="title-wrapper">
+        <h1 class="black-han-sans-regular"><i class="bi bi-pencil-fill me-2"></i>논술 첨삭 도우미</h1>
+    </div>
     <div id="carouselExampleDark" class="carousel carousel-dark slide mb-5" data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="슬라이드 1"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="슬라이드 2"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="슬라이드 3"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" class="active" aria-current="true" aria-label="슬라이드 2"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" class="active" aria-current="true" aria-label="슬라이드 3"></button>
     </div>
     <div class="carousel-inner rounded shadow">
         <div class="carousel-item active" data-bs-interval="5000">
@@ -44,7 +47,7 @@
         <div class="carousel-item active" data-bs-interval="5000">
             <a href="{% url 'app:02_my_answer' %}" class="login-required">
                 <div class="carousel-slide-overlay">
-                    <img src="{% static 'images/note.jpeg' %}" class="d-block w-100" alt="슬라이드1">
+                    <img src="{% static 'images/note.jpg' %}" class="d-block w-100" alt="슬라이드1">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>첨삭 결과 한눈에 보기</h5>
                         <p>내용, 논리, 표현, 문법 등 세부 항목별 분석 제공</p>
@@ -63,9 +66,8 @@
     </button>
 </div>
 
-<h1>논술 첨삭 도우미</h1>
 <div class="container">
-    <h5>최신 논술 동향은? 👇</h5>
+    <h5 class="black-han-sans-regular">최신 논술 동향은? 👇</h5>
     <div class="row">
         <div class="col-md-4 mb-4">
             <div class="card p-3">

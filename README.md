@@ -13,13 +13,15 @@
 
 # 🧭기존 프로젝트 소개 (streamlit 버전)
 
+기존 프로젝트 주소: https://github.com/skn-ai14-250409/SKN14-3rd-5Team
+
 ## 👨‍💻 팀원 소개 및 역할
 #### 팀명: 오논아놈? (오 논술할 줄 아는 놈인가?)
 | **하종수** |             **김성민**              | **송유나** | **이나경** | **이승혁** |
 |:--:|:--------------------------------:|:--:|:--:|:--:|
-| ![](image/짱구.png) |![](image/맹구.png) | ![](image/액션가면.png) | ![](image/부리부리대마왕.jpeg) | |)
- |
+| <img width="292" height="337" alt="짱구" src="https://github.com/user-attachments/assets/08447ca7-e05d-4c34-9be8-7a8145c15523" /> | <img width="340" height="420" alt="맹구" src="https://github.com/user-attachments/assets/aee11e37-3367-446f-9d65-0ae0ab539979" /> | <img width="340" height="420" alt="액션가면" src="https://github.com/user-attachments/assets/a357ad40-f772-4a96-a107-f3d056225dbe" /> | ![부리부리대마왕](https://github.com/user-attachments/assets/d0984d7d-e4da-4817-9ee3-61e1e1a0cb07) | <img width="438" height="398" alt="흰둥이" src="https://github.com/user-attachments/assets/09e80870-48c2-4b84-87b0-5f54523bd200" /> |
 | 프로젝트 총괄, 데이터 수집·전처리 | 프론트엔드 개발 (Streamlit), 데이터 수집·전처리 | 데이터 전처리, 백엔드 개발 (RAG) | 데이터 전처리, 백엔드 개발 (RAG) | 백엔드 개발 (RAG), 프롬프팅 |
+
 
 ---
 
@@ -36,7 +38,7 @@ LLM 기반의 RAG(Retrieval-Augmented Generation) 구조를 활용한 **대학 �
 
 ---
 
-# 💡 이하 Django version 추가 사항
+# 💡 이하 Django version
 
 
 ## ✨ 주요 기능 및 추가 사항
@@ -88,20 +90,20 @@ LLM 기반의 RAG(Retrieval-Augmented Generation) 구조를 활용한 **대학 �
 
 <img width="4905" height="2897" alt="skn14_4th_5team_system_architecture" src="https://github.com/user-attachments/assets/0ec4d0ea-faa5-4cc6-a9bc-8e64c4d1f0da" />
 
-
+---
 
 ### 데이터 플로우
 
 
 <img width="1828" height="830" alt="skn14_4th_5team_data_flow" src="https://github.com/user-attachments/assets/4f113cb3-4c7f-4ff4-a856-94bf15735bab" />
 
-
+---
 
 ### 유저 플로우
 
 <img width="1022" height="842" alt="skn14_4th_5team_user_flow" src="https://github.com/user-attachments/assets/3bdc5350-d960-48c8-a819-35aa7c6a11ee" />
 
-
+---
 
 ## 🚀 실행 방법 (Getting Started)
 
