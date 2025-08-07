@@ -17,7 +17,7 @@
 #### 팀명: 오논아놈? (오 논술할 줄 아는 놈인가?)
 | **하종수** |             **김성민**              | **송유나** | **이나경** | **이승혁** |
 |:--:|:--------------------------------:|:--:|:--:|:--:|
-| ![](image/짱구.png) |![](image/맹구.png) | ![](image/액션가면.png) | ![](image/부리부리대마왕.jpeg) | ![artworks-PjP65Gcah1iVtLNv-byRiIA-t500x500](https://github.com/user-attachments/assets/e1387cc2-44e3-49b9-9fc2-fe20db0d0ccc)
+| ![](image/짱구.png) |![](image/맹구.png) | ![](image/액션가면.png) | ![](image/부리부리대마왕.jpeg) | |)
  |
 | 프로젝트 총괄, 데이터 수집·전처리 | 프론트엔드 개발 (Streamlit), 데이터 수집·전처리 | 데이터 전처리, 백엔드 개발 (RAG) | 데이터 전처리, 백엔드 개발 (RAG) | 백엔드 개발 (RAG), 프롬프팅 |
 
