@@ -1,0 +1,62 @@
+<!-- c:/Workspaces/Personal_Anything/3rd_to_4th/fourth_project/templates/app/history.html -->
+
+{% extends "layout/base.html" %}
+{% load static %}
+{% load markdown_filters %} <!-- ★★★ 1. 우리가 만든 필터 라이브러리를 로드! ★★★ -->
+
+{% block title %}나의 첨삭 히스토리{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4"><i class="bi bi-clock-history"></i> 나의 첨삭 히스토리</h2>
+    
+    <div class="card">
+        <div class="card-body">
+            <!-- ★★★ 여기가 완전히 새로워졌어! ★★★ -->
+            <div class="table-responsive"> <!-- 화면이 작아지면 테이블에 가로 스크롤이 생기게 해줘. -->
+                <table class="table table-hover align-middle"> <!-- table-hover는 마우스를 올리면 행 색깔이 바뀌는 효과. -->
+                    <thead>
+                        <tr>
+                            <th scope="col">제출일</th>
+                            <th scope="col">문제 정보</th>
+                            <th scope="col">내 답안 (요약)</th>
+                            <th scope="col">결과 보기</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ★★★ Django 템플릿의 for 루프 시작! ★★★ -->
+                        <!-- views.py에서 보낸 'submissions' 목록을 하나씩 꺼내서 'submission'이라는 변수에 담아 반복해. -->
+                        {% for submission in submissions %}
+                        <tr>
+                            <!-- 1. 제출일: created_at 필드를 "년-월-일" 형식으로 예쁘게 보여줘. -->
+                            <td>{{ submission.created_at|date:"Y-m-d" }}</td>
+                            
+                            <!-- 2. 문제 정보: question_id를 그대로 보여줘. -->
+                            <td>{{ submission.question_id }}</td>
+                            
+                            <!-- 3. 내 답안 요약: student_answer의 내용을 15단어까지만 보여주고 뒤에는 '...'을 붙여줘. -->
+                            <td>{{ submission.student_answer|truncatewords:15 }}</td>
+                            
+                            <!-- 4. 결과 보기 버튼: 클릭하면 모달(팝업) 창이 뜨도록 할 거야. -->
+                            <td>
+                                <a href="{% url 'app:submission_detail' submission.id %}" class="btn btn-outline-primary btn-sm">
+                                  자세히 보기
+                                </a>
+                                <!-- ★★★ 이 버튼을 클릭하면 'submission_detail' URL로 이동해. 이 URL은 views.py의 submission_detail_view 함수와 연결되어 있어. -->
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <!-- ★★★ for 루프를 돌았는데 아무것도 없으면 이 부분이 대신 보여. ★★★ -->
+                        <tr>
+                            <td colspan="4" class="text-center text-muted py-5">
+                                아직 채점된 논술 답안이 없습니다.
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

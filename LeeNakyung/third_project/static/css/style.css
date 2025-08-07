@@ -108,7 +108,7 @@ h1 {
   top: 300px;  /* 배너 아래로 내려옴 */
   left: 20px;
   width: 180px;
-  height: calc(100vh - 500px);;
+  height: calc(100vh - 500px);
   background-color: #c2ffbc;
   padding-top: 30px;
   color: white;
