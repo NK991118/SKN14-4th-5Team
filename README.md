@@ -61,6 +61,22 @@ LLM 기반의 RAG(Retrieval-Augmented Generation) 구조를 활용한 **대학 �
 *   **📜 자료 업데이트를 염두에 둔 자동화 코드 추가:**
     * 추가된 대학 자료 업데이트를 염두에 둔 pdf -> png 변환 / 대학 데이터 업데이트 코드 추가
 
+---
+
+## 🛠️ 기술 스택
+
+| 구분 | 기술 |
+| :--- | :--- |
+| **Backend** | Python, Django |
+| **Frontend** | HTML, CSS, JavaScript, Bootstrap 5 |
+| **AI / LLM** | LangChain, OpenAI API (`gpt-4o-mini`) |
+| **Vector DB** | FAISS (Facebook AI Similarity Search) |
+| **OCR** | PaddleOCR |
+| **Etc** | PyMuPDF (PDF 처리) |
+| **Deploy** | AWS |
+
+---
+
 
 ## ⚙️ 웹앱 구성도 및 플로우차트
 
