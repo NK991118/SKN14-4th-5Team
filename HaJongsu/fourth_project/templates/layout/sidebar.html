@@ -1,0 +1,18 @@
+<div class="sidebar" id="sidebar">
+    <a href="{% url "app:index" %}" class="menu-item">
+        <div class="menu-icon"><i class="fi fi-rs-house-chimney"></i></div>
+        <div class="menu-text">홈</div>
+    </a>
+    <a href="{% url "app:01_select_question" %}" class="menu-item">
+        <div class="menu-icon"><i class="fi fi-rs-memo-circle-check"></i></i></div>
+        <div class="menu-text">문항 선택</div>
+    </a>
+    <a href="{% url "app:02_my_answer" %}" class="login-required">
+        <div class="menu-icon"><i class="fi fi-rr-attribution-pencil"></i></div>
+        <div class="menu-text">나의 답안 입력</div>
+    </a>
+    <a href="{% url "app:02_my_answer" %}" class="login-required">
+        <div class="menu-icon"><i class="fi fi-rr-user-robot"></i></i></div>
+        <div class="menu-text">AI 첨삭 결과</div>
+    </a>
+</div>
