@@ -105,6 +105,20 @@ LLM 기반의 RAG(Retrieval-Augmented Generation) 구조를 활용한 **대학 �
 
 ---
 
+## ✨ 구현 결과
+|            구현 화면            | 역할                           | 
+|:---------------------------:|:-----------------------------|
+| <img width="1717" height="857" alt="indix" src="https://github.com/user-attachments/assets/8fe1cd0c-3a89-493b-b88b-6bd7e6cec346" /> | 메인화면 |
+| <img width="1286" height="820" alt="signup" src="https://github.com/user-attachments/assets/7f78f842-db5e-4291-8526-932b4a42f1f2" /> | 회원가입 / 로그인 화면 구현 |
+| <img width="1494" height="819" alt="exam" src="https://github.com/user-attachments/assets/1026b011-8ac9-46f5-9bc0-4bb4dcf70bd7" /> | 시험지 보기 > 타이머 > 답안 제출하기 |
+| <img width="1284" height="814" alt="gpting" src="https://github.com/user-attachments/assets/0aec116d-ddb9-402e-82ad-b7256578e3a1" /> | 답안 작성하기 > 답안 업로드 > GPT 첨삭 실행 |
+| <img width="1906" height="850" alt="compare" src="https://github.com/user-attachments/assets/ad6eeb3b-d29c-4e54-b5ac-550fb00e5b18" /> |OCR 추출 > 내 답안과 모범답안 비교 |
+| <img width="1258" height="430" alt="history" src="https://github.com/user-attachments/assets/e33f0c53-b1e3-4009-acfb-5807b6c3e060" /> | 첨삭 히스토리 제공 |
+| <img width="1878" height="859" alt="result" src="https://github.com/user-attachments/assets/16d33ef6-f779-4be7-8967-852517a53d28" /> |첨삭 및 코멘트 확인|
+| ![image6](image/image6.png) | 첨삭 관련 질문 및 FAQ 답변 확인 |
+
+---
+
 ## 🚀 실행 방법 (Getting Started)
 
 #### 1. 저장소 복제 (Clone)
