@@ -53,38 +53,7 @@ LLM 기반의 RAG(Retrieval-Augmented Generation) 구조를 활용한 **대학 �
     *   사용자가 직접 쓴 답안지 이미지 파일 업로드 기능.
     *   PaddleOCR을 이용해 업로드된 이미지에서 텍스트를 정확하게 추출.
 *   **🤖 AI 첨삭:**
-    *   LangChain과 RAG(검색 증강 생성) 기술을 활용.
-    *   FAISS 벡터 DB에 저장된 대학별 채점 기준과 모범 답안을 바탕으로 맥락에 맞는 첨삭 제공.
-*   **📈 첨삭 히스토리:**
-    *   모든 첨삭 결과를 사용자와 연결하여 데이터베이스에 영구 저장.
-    *   '나의 첨삭 히스토리' 페이지에서 자신의 지난 기록들을 최신순으로 확인하고, 상세 내용을 다시 볼 수 있는 기능.
-
----
-
-## 🛠️ 기술 스택
-
-| 구분 | 기술 |
-| :--- | :--- |
-| **Backend** | Python, Django |
-| **Frontend** | HTML, CSS, JavaScript, Bootstrap 5 |
-| **AI / LLM** | LangChain, OpenAI API (`gpt-4o-mini`) |
-| **Vector DB** | FAISS (Facebook AI Similarity Search) |
-| **OCR** | PaddleOCR |
-| **Etc** | PyMuPDF (PDF 처리) |
-| **Deploy** | AWS |
-
----
-
-## ⏏️ 기존 프로젝트 대비 변경 사항
-
-*   **🔐 로그인/로그아웃/회원가입 기능 추가:**
-    * 맞춤형 서비스를 위한 회원제 웹앱으로의 전환
- 
-*   **🦋 첨삭 히스토리 기능 추가:**
-    * 첨삭 히스토리로 성장과정 확인 가능
-
-*   **🦜 향상된 챗봇:**
-    * 히스토리를 통한 향상된 첨삭데이터 + 사전 프롬프트 강화 + 유저의 질문을 합쳐 최고의 멘토봇으로 진화
+    *   LangCha상
 
 *   **💖 UI/UX 개선:**
     * streamlit의 한계를 극복하여 django와 bootstrap을 이용한 UI/UX 개선
