@@ -10,7 +10,7 @@ class Submission(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     
     class Meta:
-        db_table = 'submission'  # 테이블 이름을 'submission'으로 설정
+        db_table = 'submission'
     def __str__(self):
-        # 예: "홍길동 학생의 건국대 2023년 1번 문항 제출" 처럼 보이게 만들어줘.
+
         return f"{self.user.username} 학생의 {self.question_id} 제출"

@@ -1,19 +1,16 @@
-body {
-    /* 전체 페이지의 기본 폰트와 배경색을 지정해. */
+/* body {
     font-family: 'Nanum Gothic', sans-serif;
-    background-color: #f8f9fa; /* 너무 튀지 않는 밝은 회색 계열로 변경 */
+    background-color: #f8f9fa;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
 main {
-    /* 메인 콘텐츠 영역이 남은 공간을 모두 채우도록 설정 */
     flex: 1;
 }
 
 .container {
-    /* 콘텐츠가 들어가는 중앙 영역의 최대 너비와 그림자 효과 등을 지정 */
     max-width: 1140px;
     background-color: #ffffff;
     padding: 2rem;
@@ -22,12 +19,10 @@ main {
 }
 
 .navbar-custom {
-    /* 상단 네비게이션 바의 배경색을 지정 */
-    background-color: #4eaf51 !important; /* !important 로 다른 스타일에 덮어쓰이지 않게 함 */
+    background-color: #4eaf51 !important;
 }
 
 .navbar-custom .navbar-brand,
 .navbar-custom .nav-link {
-    /* 네비게이션 바의 글자색을 흰색으로 지정 */
     color: white !important;
-}
+} */
