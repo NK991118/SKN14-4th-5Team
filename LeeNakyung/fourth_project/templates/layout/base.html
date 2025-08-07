@@ -1,0 +1,51 @@
+{% load static %}
+
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}논술 첨삭 도우미{% endblock title %}</title>
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap 아이콘 사용을 위한 아이콘 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Global CSS -->
+    {% comment %} <link rel="stylesheet" href="{% static 'css/global.css' %}"> {% endcomment %}
+    
+    <!-- Page-specific CSS -->
+    {% block style %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock style %}
+</head>
+<body>
+    <!-- 상단 고정 네비게이션 바 -->
+    {% include "./nav.html" %}
+
+    <!-- 사이드바 -->
+    {% include "./sidebar.html" %}
+
+    <!-- 메인 콘텐츠 영역 -->
+    <main class="main-content">
+        {% block content %}
+        <!-- 각 페이지의 실제 내용 -->
+        {% endblock content %}
+    </main>
+    
+    <!-- 하단 푸터 -->
+    {% include "./footer.html" %}
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- 마크다운 변환을 위한 marked.js 라이브러리 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- Page-specific JS -->
+    {% block script %}
+    
+    {% endblock script %}
+</body>
+</html>
