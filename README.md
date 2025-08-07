@@ -80,25 +80,23 @@ LLM 기반의 RAG(Retrieval-Augmented Generation) 구조를 활용한 **대학 �
 
 
 ## ⚙️ 웹앱 구성도 및 플로우차트
-Group 45.png
 
---
 
 ### 시스템 아키텍처
 <img width="4905" height="3226" alt="skn14_4th_5team_system_architecture" src="https://github.com/user-attachments/assets/d5593a93-0014-481c-ab49-e6fc81413e23" />
 
---
+
 
 ### 데이터 플로우
 <img width="1828" height="830" alt="skn14_4th_5team_data_flow" src="https://github.com/user-attachments/assets/aca8a742-d045-4cc5-b6c0-be4c3337e696" />
 
---
+
 
 ### 유저 플로우
 
 <img width="1022" height="842" alt="skn14_4th_5team_user_flow" src="https://github.com/user-attachments/assets/3bdc5350-d960-48c8-a819-35aa7c6a11ee" />
 
---
+
 
 ## 🚀 실행 방법 (Getting Started)
 
