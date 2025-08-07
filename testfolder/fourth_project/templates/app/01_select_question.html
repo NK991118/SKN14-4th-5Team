@@ -1,0 +1,64 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% block title %}논술 문항 선택{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">📘 논술 문항 선택</h2>
+    
+    <!-- 드롭다운 메뉴 -->
+    <div class="row g-3">
+        <div class="col-md-4">
+            <label for="schoolSelect" class="form-label">학교 선택</label>
+            <select id="schoolSelect" class="form-select">
+                <option selected disabled>학교를 선택하세요</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="yearSelect" class="form-label">연도 선택</label>
+            <select id="yearSelect" class="form-select" disabled>
+                <option selected disabled>연도를 선택하세요</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="questionSelect" class="form-label">문항 선택</label>
+            <select id="questionSelect" class="form-select" disabled>
+                <option selected disabled>문항을 선택하세요</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="image-container" class="mt-4" style="display: none;">
+        <div id="imageCarousel" class="carousel slide carousel-dark" data-bs-ride="false">
+            <div class="carousel-inner bg-light p-3 rounded shadow-sm">
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 타이머 위젯 -->
+    <div id="floating-timer-widget">
+        <input type="number" id="minuteInput" placeholder="분 입력" min="1">
+        <div>
+            <span id="timerDisplay"></span>
+        </div>
+        <div class="timer-controls">
+            <button id="startBtn" title="시작"><i class="bi bi-play-fill"></i></button>
+            <button id="pauseBtn" title="일시정지"><i class="bi bi-pause-fill"></i></button>
+            <button id="resetBtn" title="초기화"><i class="bi bi-arrow-clockwise"></i></button>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block script %}
+{{ schools_data_json|json_script:"schools-data" }}
+<script src="{% static 'js/question-selector.js' %}"></script>
+{% endblock script %}

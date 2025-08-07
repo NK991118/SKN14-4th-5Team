@@ -1,0 +1,53 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% load markdown_filters %}
+
+{% block title %}나의 첨삭 히스토리{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4"><i class="bi bi-clock-history"></i> 나의 첨삭 히스토리</h2>
+    
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col">제출일</th>
+                            <th scope="col">문제 정보</th>
+                            <th scope="col">내 답안 (요약)</th>
+                            <th scope="col">결과 보기</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for submission in submissions %}
+                        <tr>
+                            
+                            <td>{{ submission.created_at|date:"Y-m-d" }}</td>
+                            
+                            <td>{{ submission.question_id }}</td>
+                            
+                            <td>{{ submission.student_answer|truncatewords:15 }}</td>
+                            
+                            <td>
+                                <a href="{% url 'app:submission_detail' submission.id %}" class="btn btn-outline-primary btn-sm">
+                                자세히 보기
+                                </a>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="4" class="text-center text-muted py-5">
+                                아직 채점된 논술 답안이 없습니다.
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
