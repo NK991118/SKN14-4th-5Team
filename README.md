@@ -43,7 +43,7 @@ LLM 기반의 RAG(Retrieval-Augmented Generation) 구조를 활용한 **대학 �
 ## 🧞 요구 사항 정의서
 
 
-요구사항이 들어갈 자리
+요구 사항 정의서는 01_requirements_spec/SKN14_4th_5Team_요구사항 정의서.pdf 로 대체
 
 ---
 
