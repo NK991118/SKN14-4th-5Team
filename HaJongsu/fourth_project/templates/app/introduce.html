@@ -1,0 +1,89 @@
+{% extends "layout/base.html" %}
+{% load static %}
+
+{% block title %}서비스 소개{% endblock title %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4 fw-bold"><i class="bi bi-pencil-fill me-2"></i>논술 첨삭 도우미 소개</h1>
+
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <img src="{% static 'images/intro_main.png' %}" class="img-fluid rounded shadow" alt="논술 이미지">
+        </div>
+        <div class="col-md-6 d-flex align-items-center">
+            <div>
+                <h4>논술 첨삭, 이제 AI와 함께</h4>
+                <p class="lead mt-3">
+                    이 서비스는 대학 논술 준비생을 위한 AI 기반 첨삭 시스템입니다.
+                    <br>
+                    다양한 학교 및 연도의 기출 문항을 선택하고, 직접 답안을 작성하면 AI가 자동으로 첨삭 및 피드백을 제공합니다.
+                </p>
+            </div>
+        </div>
+    </div>
+
+<hr class="mb-5">
+
+<div class="container py-5" style="background-color: #ffffffff;">
+    <div class="row text-center g-5">
+
+        <div class="col-md-6 d-flex flex-column align-items-center">
+            <i class="bi bi-journal-richtext fs-1 text-primary mb-3"></i>
+            <h5>다양한 기출 문항</h5>
+            <div class="d-flex justify-content-center align-items-center w-100" style="height: 350px;">
+                <img src="{% static 'images/question.png' %}" 
+                     class="img-fluid rounded shadow" 
+                     alt="논술 이미지" 
+                     style="max-height: 100%; object-fit: contain;">
+            </div>
+            <p class="mt-3">학교/연도별 논술 문항을 한눈에 보고 선택할 수 있어요.</p>
+        </div>
+
+        <div class="col-md-6 d-flex flex-column align-items-center">
+            <i class="bi bi-pencil-fill fs-1 text-success mb-3"></i>
+            <h5>직접 답안 작성</h5>
+            <div class="d-flex justify-content-center align-items-center w-100" style="height: 350px;">
+                <img src="{% static 'images/answer.png' %}" 
+                     class="img-fluid rounded shadow" 
+                     alt="논술 이미지" 
+                     style="max-height: 100%; object-fit: contain;">
+            </div>
+            <p class="mt-3">실제 시험처럼 답안을 작성하고 시간도 측정할 수 있어요.</p>
+        </div>
+
+        <div class="col-md-6 d-flex flex-column align-items-center">
+            <i class="bi bi-robot fs-1 text-warning mb-3"></i>
+            <h5>AI 첨삭 결과 제공</h5>
+            <div class="d-flex justify-content-center align-items-center w-100" style="height: 350px;">
+                <img src="{% static 'images/ai_answer.png' %}" 
+                     class="img-fluid rounded shadow" 
+                     alt="논술 이미지" 
+                     style="max-height: 100%; object-fit: contain;">
+            </div>
+            <p class="mt-3">GPT 기반 AI가 작성한 답안을 분석하고 피드백을 줘요.</p>
+        </div>
+
+        <div class="col-md-6 d-flex flex-column align-items-center">
+            <i class="fi fi-rr-messages-question fs-1 text-info mb-3"></i>
+            <h5>AI 챗봇으로 추가 질문</h5>
+            <div class="d-flex justify-content-center align-items-center w-100" style="height: 350px;">
+                <img src="{% static 'images/chatbot.png' %}" 
+                     class="img-fluid rounded shadow" 
+                     alt="논술 이미지" 
+                     style="max-height: 100%; object-fit: contain;">
+            </div>
+            <p class="mt-3">첨삭 결과에 대해 궁금한 점을 질문해 보세요.</p>
+        </div>
+    </div>
+</div>
+
+    <div class="text-center mt-5">
+        <a href="{% url 'app:01_select_question' %}" class="btn btn-primary btn-lg">
+            지금 시작하기
+        </a>
+    </div>
+</div>
+
+</hr>
+{% endblock content %}

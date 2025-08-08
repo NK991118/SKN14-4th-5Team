@@ -104,10 +104,11 @@ main {
     max-width: 1000px;
     margin: 80px auto;
     padding: 20px;
-    background-color: rgb(216, 231, 252);
+    background-color: rgb(216, 231, 252); 
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
+
 
 /* h1 {
     text-align: center;
