@@ -15,7 +15,7 @@
 | **하종수** |             **김성민**              | **송유나** | **이나경** | **이승혁** |
 |:--:|:--------------------------------:|:--:|:--:|:--:|
 | <img width="292" height="337" alt="짱구" src="https://github.com/user-attachments/assets/08447ca7-e05d-4c34-9be8-7a8145c15523" /> | <img width="340" height="420" alt="맹구" src="https://github.com/user-attachments/assets/aee11e37-3367-446f-9d65-0ae0ab539979" /> | <img width="340" height="420" alt="액션가면" src="https://github.com/user-attachments/assets/a357ad40-f772-4a96-a107-f3d056225dbe" /> | ![부리부리대마왕](https://github.com/user-attachments/assets/d0984d7d-e4da-4817-9ee3-61e1e1a0cb07) | <img width="438" height="398" alt="흰둥이" src="https://github.com/user-attachments/assets/09e80870-48c2-4b84-87b0-5f54523bd200" /> |
-| 프로젝트 총괄, 데이터 수집·전처리 | 프론트엔드 개발 (Streamlit), 데이터 수집·전처리 | 데이터 전처리, 백엔드 개발 (RAG) | 데이터 전처리, 백엔드 개발 (RAG) | 백엔드 개발 (RAG), 프롬프팅 |
+| 프로젝트 총괄 및 코드 병합 | 데이터 전처리 및 AWS | 시험지 및 답안 페이지 개발 | 메인 및 소개 페이지 개발 | 전체 페이지 개발 |
 
 # 🧭기존 프로젝트 소개 (streamlit 버전)
 
@@ -160,6 +160,13 @@ OPENAI_API_KEY="sk-..."
 
 #### 5. 데이터베이스 설정
 
+```cmd
+"mysql.exe 경로"  -u root -p < setup.sql
+
+*mysqlclient 없을 시
+pip install mysqlclient
+```
+
 
 #### 6. 데이터 전처리 (최초 1회 실행)
 
@@ -200,9 +207,9 @@ python manage.py runserver
 ---
 
 ## 📝 회고록
-*   **하종수:** 
+*   **하종수:** html, css, js, django를 완전 처음 배우는데 역시 언어를 처음 배우는건 참 어려운 걸 다시금 깨달았습니다. 하지만 역시 재밌어요! 또한 AWS를 통해서 배포까지 해보고 싶었으나, 하지못한게 아쉬웠습니다. 다음엔 꼭... AWS를 이용해서 끝까지 완성을..! 그리고 역시나 우리 팀원들이 다들 열심히 해주셔서 너무 감사합니다!
 
-*   **김성민:** 
+*   **김성민:** 대학 논술 대비를 위한 AI 자동 첨삭 시스템을 EC2 환경에서 Docker 기반으로 배포하는 것을 목표로 진행했고, 처음에는 로컬 환경에서 잘 동작하던 코드를 AWS에 옮기면서, 환경 변수 설정, Dockerfile과 docker-compose.yml 작성, 그리고 컨테이너 실행 과정에서 예상치 못한 문제를 여럿 마주했습니다. 고생한 팀원들 정말 감사하고 좋은 경험이였습니다.
 
 *   **송유나:** 기술적, 기능적인 부분만 개발하다가, 내가 만든 기능을 사용자에게 친절하게 닿을 수 있는 방법을 고민하며 사용자 친화적인 화면을 구상하는 과정에서 많은 것을 새롭게 배웠습니다. 단순한 기능 구현을 넘어, 동기·비동기 처리와 자동화된 배포 등 DevOps 관점에서의 전 과정을 경험해보고 싶은 동기가 생긴 프로젝트였습니다. PM의 역할이 얼마나 중요한지 다시 한 번 느낄 수 있었고, 두 번 연속 함께한 팀원들과의 협업도 감사한 경험이었습니다!
 
