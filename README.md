@@ -38,6 +38,14 @@ LLM 기반의 RAG(Retrieval-Augmented Generation) 구조를 활용한 **대학 �
 
 # 💡 이하 Django version
 
+---
+
+## 🧞 요구 사항 정의서
+
+
+요구사항이 들어갈 자리
+
+---
 
 ## ✨ 주요 기능 및 추가 사항
 
@@ -85,8 +93,9 @@ LLM 기반의 RAG(Retrieval-Augmented Generation) 구조를 활용한 **대학 �
 
 ### 시스템 아키텍처
 
+<img width="4905" height="2897" alt="skn14_4th_5team_system_architecture" src="https://github.com/user-attachments/assets/3bc4ce42-d7e5-4062-a66f-ec59d4580e76" />
 
-<img width="4905" height="2897" alt="skn14_4th_5team_system_architecture" src="https://github.com/user-attachments/assets/0ec4d0ea-faa5-4cc6-a9bc-8e64c4d1f0da" />
+
 
 ---
 
@@ -106,14 +115,14 @@ LLM 기반의 RAG(Retrieval-Augmented Generation) 구조를 활용한 **대학 �
 ## ✨ 구현 결과
 |            구현 화면            | 역할                           | 
 |:---------------------------:|:-----------------------------|
-| <img width="1717" height="857" alt="indix" src="https://github.com/user-attachments/assets/8fe1cd0c-3a89-493b-b88b-6bd7e6cec346" /> | 메인화면 |
+| <img width="1910" height="855" alt="index_home" src="https://github.com/user-attachments/assets/ce26296b-e7ed-42fb-95a7-d6c0f0ecacee" /> | 메인화면 |
 | <img width="1286" height="820" alt="signup" src="https://github.com/user-attachments/assets/7f78f842-db5e-4291-8526-932b4a42f1f2" /> | 회원가입 / 로그인 화면 구현 |
 | <img width="1494" height="819" alt="exam" src="https://github.com/user-attachments/assets/1026b011-8ac9-46f5-9bc0-4bb4dcf70bd7" /> | 시험지 보기 > 타이머 > 답안 제출하기 |
 | <img width="1284" height="814" alt="gpting" src="https://github.com/user-attachments/assets/0aec116d-ddb9-402e-82ad-b7256578e3a1" /> | 답안 작성하기 > 답안 업로드 > GPT 첨삭 실행 |
 | <img width="1906" height="850" alt="compare" src="https://github.com/user-attachments/assets/ad6eeb3b-d29c-4e54-b5ac-550fb00e5b18" /> |OCR 추출 > 내 답안과 모범답안 비교 |
 | <img width="1258" height="430" alt="history" src="https://github.com/user-attachments/assets/e33f0c53-b1e3-4009-acfb-5807b6c3e060" /> | 첨삭 히스토리 제공 |
 | <img width="1878" height="859" alt="result" src="https://github.com/user-attachments/assets/16d33ef6-f779-4be7-8967-852517a53d28" /> |첨삭 및 코멘트 확인|
-| ![image6](image/image6.png) | 첨삭 관련 질문 및 FAQ 답변 확인 |
+| <img width="600" height="764" alt="chatbot" src="https://github.com/user-attachments/assets/6004f70d-83ff-407f-86ad-a0aa379e59ef" /> | 첨삭 관련 질문 및 FAQ 답변 확인 |
 
 ---
 
@@ -185,3 +194,17 @@ python manage.py runserver
 📊 성장 대시보드: AI가 매긴 예상 점수를 그래프로 시각화하여 학습 성과를 추적하는 기능.
 
 🔗 유사 문제 추천: 약점을 보완할 수 있는 유사한 유형의 다른 대학 문제를 추천하는 AI 기능.
+
+
+---
+
+## 📝 회고록
+*   **하종수:** 
+
+*   **김성민:** 
+
+*   **송유나:** 
+
+*   **이나경:** 
+
+*   **이승혁:** 이번 프로젝트는 단순히 Streamlit 프로토타입을 Django로 전환하는 것을 넘어, 웹 개발의 전체적인 흐름을 깊이 있게 체험하는 귀중한 경험이었습니다. 특히 사용자 인증부터 데이터베이스 설계, 비동기 통신(AJAX)을 이용한 AI 챗봇 구현까지, 각 기능이 유기적으로 연결되는 과정을 통해 풀스택 개발의 진정한 재미를 느꼈습니다. 수많은 버그와 씨름하며 얻은 안정적인 코드 구조는 앞으로의 개발 여정에 든든한 자산이 될 것입니다. 좋은 팀원들의 열성적인 노력 덕택에 팀프로젝트가 잘 마무리될 수 있었습니다. 감사합니다.
