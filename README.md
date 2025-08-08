@@ -38,12 +38,14 @@ LLM 기반의 RAG(Retrieval-Augmented Generation) 구조를 활용한 **대학 �
 
 # 💡 이하 Django version
 
+---
+
 ## 🧞 요구 사항 정의서
 
 
 요구사항이 들어갈 자리
 
-
+---
 
 ## ✨ 주요 기능 및 추가 사항
 
