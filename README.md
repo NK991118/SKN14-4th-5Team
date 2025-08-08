@@ -93,8 +93,9 @@ LLM 기반의 RAG(Retrieval-Augmented Generation) 구조를 활용한 **대학 �
 
 ### 시스템 아키텍처
 
+<img width="4905" height="2897" alt="skn14_4th_5team_system_architecture" src="https://github.com/user-attachments/assets/3bc4ce42-d7e5-4062-a66f-ec59d4580e76" />
 
-<img width="4905" height="2897" alt="skn14_4th_5team_system_architecture" src="https://github.com/user-attachments/assets/0ec4d0ea-faa5-4cc6-a9bc-8e64c4d1f0da" />
+
 
 ---
 
