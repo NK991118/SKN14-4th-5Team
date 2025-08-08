@@ -1,0 +1,76 @@
+{% extends "layout/base.html" %}
+{% load static %}
+
+{% block title %}나의 답안 입력{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">✍️ 나의 답안 입력 및 제출</h2>
+
+    <div id="spinner" style="display: none;">
+        <div class="spinner-wrapper">
+            <img src="{% static 'images/spinner.gif' %}" alt="로딩 중..." class="spinner-img">
+            <p class="loading-text">loading...</p>
+        </div>
+    </div>
+
+    <form id='grading-form' method="post" enctype="multipart/form-data" action="{% url 'app:02_my_answer' %}">
+        {% csrf_token %}
+
+        <div class="card mb-4">
+            <div class="card-header"><strong>1. 채점 받을 문제 선택</strong></div>
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label for="schoolSelect" class="form-label">학교 선택</label>
+                        <select id="schoolSelect" class="form-select">
+                            <option selected disabled>학교를 선택하세요</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="yearSelect" class="form-label">연도 선택</label>
+                        <select id="yearSelect" class="form-select" disabled>
+                            <option selected disabled>연도를 선택하세요</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="questionSelect" class="form-label">문항 선택</label>
+                        <select id="questionSelect" class="form-select" disabled>
+                            <option selected disabled>문항을 선택하세요</option>
+                        </select>
+                    </div>
+                </div>
+                <input type="hidden" name="question_id" id="questionIdInput">
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header"><strong>2. 답안 이미지 업로드</strong></div>
+            <div class="card-body">
+                <p class="text-muted">직접 작성한 답안지 사진 파일(jpg, png 등)을 업로드해주세요.</p>
+                <!-- name="answer_image"가 views.py의 request.FILES.get('answer_image')와 일치해야 해. -->
+                <input type="file" class="form-control" name="answer_image" id="imageUploader" accept="image/*" required>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header"><strong>3. 미리보기 및 첨삭 실행</strong></div>
+            <div class="card-body">
+                <!-- 이미지 미리보기가 표시될 컨테이너 -->
+                <div id="imagePreviewContainer" class="mb-3 p-3 border rounded bg-light text-center" style="min-height: 200px;">
+                    <p id="previewText" class="text-muted">이곳에 업로드한 이미지 미리보기가 표시됩니다.</p>
+                    <img id="imagePreview" src="#" alt="이미지 미리보기" class="img-fluid rounded" style="display: none; max-height: 500px;">
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-lg">🤖 AI 첨삭 실행하기</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}
+
+{% block script %}
+{{ schools_data_json|json_script:"schools-data" }}
+<script src="{% static 'js/my-answer.js' %}"></script>
+{% endblock script %}

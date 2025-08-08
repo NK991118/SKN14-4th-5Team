@@ -1,0 +1,173 @@
+{% extends "layout/base.html" %}
+{% load static %}
+
+{% block title %}논술 첨삭 도우미{% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock style %}
+
+{% block content %}
+<!-- 본문 -->
+<div class="container">
+    <div class="title-wrapper">
+        <h1 class="black-han-sans-regular"><i class="bi bi-pencil-fill me-2"></i>논술 첨삭 도우미</h1>
+    </div>
+    <div id="carouselExampleDark" class="carousel carousel-dark slide mb-5" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="슬라이드 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" class="active" aria-current="true" aria-label="슬라이드 2"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" class="active" aria-current="true" aria-label="슬라이드 3"></button>
+    </div>
+    <div class="carousel-inner rounded shadow">
+        <div class="carousel-item active" data-bs-interval="5000">
+            <a href="{% url 'app:01_select_question' %}">
+                <div class="carousel-slide-overlay">
+                    <img src="{% static 'images/ai.jpg' %}" class="d-block w-100" alt="슬라이드1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>논술 AI 첨삭 도우미</h5>
+                        <p>AI 기반으로 빠르고 정확하게 피드백을 제공합니다.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="carousel-item active" data-bs-interval="5000">
+            <a href="{% url 'app:02_my_answer' %}" class="login-required">
+                <div class="carousel-slide-overlay">
+                    <img src="{% static 'images/university.jpg' %}" class="d-block w-100" alt="슬라이드1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>실전 문항 기반 훈련</h5>
+                        <p>대학별 실전 문항으로 훈련할 수 있어요.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="carousel-item active" data-bs-interval="5000">
+            <a href="{% url 'app:02_my_answer' %}" class="login-required">
+                <div class="carousel-slide-overlay">
+                    <img src="{% static 'images/note.jpg' %}" class="d-block w-100" alt="슬라이드1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>첨삭 결과 한눈에 보기</h5>
+                        <p>내용, 논리, 표현, 문법 등 세부 항목별 분석 제공</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">이전</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">다음</span>
+    </button>
+</div>
+
+<div class="container">
+    <h5>최신 논술 동향은? 👇</h5>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card p-3">
+                <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F014%2F2025%2F07%2F31%2F5385144.jpg&type=f200_200&expire=2&refresh=true" class="card-img-top" alt="대입 수시 이미지">
+                <a href="https://www.fnnews.com/news/202507310931197603">
+                    <h5>2026학년도 수시, 논술이 중요해졌다</h5>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card p-3">
+                <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F5549%2F2025%2F08%2F05%2F7169.jpg&type=ofullfill208_208_empty&expire=2&refresh=true" class="card-img-top" alt="대입 수시 이미지">
+                <a href="https://woman.donga.com/edu/article/all/12/5764810/1">
+                    <h5>면접과 논술, 경쟁 치열한 올해 입시에서 가성비 높은 선택지</h5>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card p-3">
+                <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F5005%2F2025%2F08%2F04%2F946531.jpg&type=f200_200&expire=2&refresh=true" class="card-img-top" alt="대입 수시 이미지">
+                <a href="https://cc.newdaily.co.kr/site/data/html/2025/08/04/2025080400354.html">
+                    <h5>한국기술교육대, 2026학년도 대입 전형 대대적 개편</h5>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card p-3">
+                <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F5723%2F2025%2F07%2F31%2F29275.jpg&type=f200_200&expire=2&refresh=true" class="card-img-top" alt="대입 수시 이미지">
+                <a href="https://weekly.hankooki.com/news/articleView.html?idxno=7121959">
+                    <h5>[핵심! 2026 大入수시] 덕성여대 "논술전형에 약학대학 신설"</h5>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card p-3">
+                <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F5449%2F2025%2F08%2F04%2F87586.jpg&type=f200_200&expire=2&refresh=true" class="card-img-top" alt="대입 수시 이미지">
+                <a href="https://edu.donga.com/news/articleView.html?idxno=92932">
+                    <h5>2026학년도 수시, 주요 대학 전형 변화 정리... 중앙대·경희대·이화여대 주목 포인트는?</h5>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card p-3">
+                <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F5297%2F2025%2F08%2F01%2F815846.jpg&type=ofullfill208_208_empty&expire=2&refresh=true" class="card-img-top" alt="대입 수시 이미지">
+                <a href="https://www.breaknews.com/1137437">
+                    <h5>대입 성공의 지름길 : 고등학교와 계열 선택, 현명한 시작!</h5>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card p-3">
+                <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F014%2F2025%2F07%2F24%2F5381757.jpg&type=f200_200&expire=2&refresh=true" class="card-img-top" alt="대입 수시 이미지">
+                <a href="https://www.fnnews.com/news/202507240935512581">
+                    <h5>혼돈의 2026학년도 대입, 수시정시 전략은</h5>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card p-3">
+                <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F5449%2F2025%2F07%2F15%2F86477.jpg&type=f200_200&expire=2&refresh=true" class="card-img-top" alt="대입 수시 이미지">
+                <a href="https://edu.donga.com/news/articleView.html?idxno=91729">
+                    <h5>올해 대입 논술전형 고사일, 9개교는 수능 전... 수능 후 대학은?</h5>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card p-3">
+                <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F5003%2F2025%2F07%2F19%2F2078256.jpg&type=f200_200&expire=2&refresh=true" class="card-img-top" alt="대입 수시 이미지">
+                <a href="https://www.etoday.co.kr/news/view/2488973">
+                    <h5>“일정 중복 여부 확인해야”⋯올해 대학 논술전형 일정은</h5>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script>
+    const isAuthenticated = {{ user.is_authenticated|yesno:"true,false" }};
+    const loginUrl = "{% url 'app:login' %}?next={{ request.path|urlencode }}";
+
+    document.querySelectorAll('.login-required').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            if (!isAuthenticated) {
+                const confirmed = confirm('로그인이 필요합니다. 로그인하시겠습니까?');
+                if (!confirmed) {
+                    e.preventDefault();
+                } else {
+                    e.preventDefault();
+                    location.href = loginUrl;
+                }
+            }
+        });
+    });
+</script>
+{% endblock script %}
