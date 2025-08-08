@@ -168,6 +168,12 @@ OPENAI_API_KEY="sk-..."
 pip install mysqlclient
 ```
 
+터미널에서 아래 명령어 실행:
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+
 
 #### 6. 데이터 전처리 (최초 1회 실행)
 
