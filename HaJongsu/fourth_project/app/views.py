@@ -154,3 +154,6 @@ def chat_api(request):
             return JsonResponse({'error': f'AI 응답 생성 중 오류가 발생했습니다: {e}'}, status=500)
 
     return JsonResponse({'error': 'POST 요청만 허용됩니다.'}, status=405)
+
+def introduce(request):
+    return render(request, 'app/introduce.html')

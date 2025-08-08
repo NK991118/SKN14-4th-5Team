@@ -14,4 +14,5 @@ urlpatterns = [
     path('history/', views.history_view, name='history'),
     path('api/chat/', views.chat_api, name='chat_api'),
     path('history/<int:submission_id>/', views.submission_detail_view, name='submission_detail'),
+    path('introduce', views.introduce, name='introduce')
 ]
