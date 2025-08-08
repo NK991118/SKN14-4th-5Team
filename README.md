@@ -115,7 +115,7 @@ LLM 기반의 RAG(Retrieval-Augmented Generation) 구조를 활용한 **대학 �
 ## ✨ 구현 결과
 |            구현 화면            | 역할                           | 
 |:---------------------------:|:-----------------------------|
-| <img width="1717" height="857" alt="indix" src="https://github.com/user-attachments/assets/8fe1cd0c-3a89-493b-b88b-6bd7e6cec346" /> | 메인화면 |
+| <img width="1910" height="855" alt="index_home" src="https://github.com/user-attachments/assets/ce26296b-e7ed-42fb-95a7-d6c0f0ecacee" /> | 메인화면 |
 | <img width="1286" height="820" alt="signup" src="https://github.com/user-attachments/assets/7f78f842-db5e-4291-8526-932b4a42f1f2" /> | 회원가입 / 로그인 화면 구현 |
 | <img width="1494" height="819" alt="exam" src="https://github.com/user-attachments/assets/1026b011-8ac9-46f5-9bc0-4bb4dcf70bd7" /> | 시험지 보기 > 타이머 > 답안 제출하기 |
 | <img width="1284" height="814" alt="gpting" src="https://github.com/user-attachments/assets/0aec116d-ddb9-402e-82ad-b7256578e3a1" /> | 답안 작성하기 > 답안 업로드 > GPT 첨삭 실행 |
