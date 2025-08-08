@@ -93,7 +93,8 @@ LLM 기반의 RAG(Retrieval-Augmented Generation) 구조를 활용한 **대학 �
 
 ### 시스템 아키텍처
 
-<img width="4905" height="2897" alt="skn14_4th_5team_system_architecture" src="https://github.com/user-attachments/assets/3bc4ce42-d7e5-4062-a66f-ec59d4580e76" />
+
+<img width="4988" height="2986" alt="skn14_4th_5team_system_architecture_with_white_background" src="https://github.com/user-attachments/assets/0f0e0195-95e8-4b7c-b917-7957c9494bf8" />
 
 
 
@@ -205,6 +206,6 @@ python manage.py runserver
 
 *   **송유나:** 
 
-*   **이나경:** 
+*   **이나경:** 이번 프로젝트에서는 서비스 이용자에게 편리한 페이지를 만들기 위해 많은 노력을 해보았습니다. streamlit이라는 제한적인 환경에서만 웹을 구성해보다가 django를 이용해 직접 내 손으로 html과 css를 구성해보는 과정이 정말 재미있었습니다. 메인 페이지를 맡아 서비스 이용자에게 어떻게 하면 좋은 첫인상과 신뢰감을 가져다줄 수 있을지 많이 고민해보았던 시간이었습니다. 추후 기회가 된다면 배포까지 완성해보면 더할 나위 없이 좋을 것 같습니다. 많이 도와주고 격려해주신 팀원분들 정말 감사드립니다!
 
 *   **이승혁:** 이번 프로젝트는 단순히 Streamlit 프로토타입을 Django로 전환하는 것을 넘어, 웹 개발의 전체적인 흐름을 깊이 있게 체험하는 귀중한 경험이었습니다. 특히 사용자 인증부터 데이터베이스 설계, 비동기 통신(AJAX)을 이용한 AI 챗봇 구현까지, 각 기능이 유기적으로 연결되는 과정을 통해 풀스택 개발의 진정한 재미를 느꼈습니다. 수많은 버그와 씨름하며 얻은 안정적인 코드 구조는 앞으로의 개발 여정에 든든한 자산이 될 것입니다. 좋은 팀원들의 열성적인 노력 덕택에 팀프로젝트가 잘 마무리될 수 있었습니다. 감사합니다.
